@@ -1,7 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float Speed = 5f;
+    public Player Player;
+    public ParticleSystem DestroyEffect;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -9,9 +14,22 @@ public class Enemy : MonoBehaviour
             var player = other.GetComponent<Player>();
             if (player != null)
             {
-                player.AddHealth(-10f); // Example damage value
-                print("Enemy hit the player, health reduced.");
+                DestroyEffect.Play();
+                player.AddHealth(-25f);
+                StartCoroutine(DestroyBeforeEffect());
             }
         }
+    }
+
+    private void Update()
+    {
+        var direction = (Player.transform.position - transform.position).normalized;
+        transform.position += Speed * Time.deltaTime * direction;
+    }
+
+    public IEnumerator DestroyBeforeEffect()
+    {
+        yield return new WaitForSeconds(0.25f);
+        Destroy(gameObject);
     }
 }

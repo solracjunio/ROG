@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject DamageVignette;
     public GameObject HealVignette;
     public GameObject GameOver;
+    public Spawner Spawner;
 
     private void Start()
     {
@@ -27,24 +28,23 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        var Inputs = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        var Inputs = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
         transform.position += Speed * Time.deltaTime * Inputs;
 
         var diff = CurrentHealth - _tempHealth;
         if (diff < 0)
         {
-            print("Damaged");
             DamageEffect.Play();
             StartCoroutine(ActivateVignette(DamageVignette));
             if (CurrentHealth <= 0)
             {
-                print("Player is dead");
                 GameOver.SetActive(true);
+                Speed = 0f;
+                Spawner.enabled = false;
             }
         }
         else if (diff > 0)
         {
-            print("Healed");
             HealEffect.Play();
             StartCoroutine(ActivateVignette(HealVignette));
         }
