@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 2630862009424116625}
   - component: {fileID: 7769618383577847694}
   - component: {fileID: 48203115356464141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,9 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4cb2b244d7eaa4ab16307a9e4e2152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 2
   Player: {fileID: 0}
   DestroyEffect: {fileID: 6364645621209735800}
+  Spawner: {fileID: 0}
+  ExperiencePickupPrefab: {fileID: 5401697142601925062, guid: b94b5fd312ff5a74baef2cf8d9cf007a, type: 3}
 --- !u!1 &3898565913789179781
 GameObject:
   m_ObjectHideFlags: 0

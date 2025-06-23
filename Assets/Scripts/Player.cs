@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public GameObject HealVignette;
     public GameObject GameOver;
     public Spawner Spawner;
+    public SpawnerHealthPickup SpawnerHealthPickup;
+    public Weapon Weapon;
+    public float Experience;
 
     private void Start()
     {
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour
                 GameOver.SetActive(true);
                 Speed = 0f;
                 Spawner.enabled = false;
+                Weapon.enabled = false;
+                SpawnerHealthPickup.enabled = false;
             }
         }
         else if (diff > 0)

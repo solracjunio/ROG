@@ -112,3 +112,42 @@ Essa **relação cíclica** é um indício claro de que o acoplamento saiu do co
 Com cada nova funcionalidade, o sistema exige alterações em elementos já existentes — ou seja, **não é modular**. Em vez de crescer de forma organizada, o código se enrosca em dependências cruzadas.
 
 A analogia com um prato de espaguete é perfeita: tudo está ligado a tudo, dificultando testes, refatorações e manutenção. Funciona para protótipos, mas **não escala**.
+
+---
+
+## Parte 4 – O Início do Cansaço
+
+**⏱ Tempo de desenvolvimento:** 2h32 a 4h08
+**🎥 Vídeo base:** [Part 4: Weapon and Pickups](https://www.youtube.com/watch?v=qvbSTnvsOtg&index=4)
+
+![Gameplay 4](README/Gameplay4.png)
+
+Nesta etapa, a complexidade começou a pesar. O que antes levava menos de uma hora para ser implementado, agora passa facilmente de **1h30** — não por conta da dificuldade técnica, mas pelo esforço necessário para **lidar com a bagunça acumulada**.
+
+A cada nova funcionalidade, as classes existentes crescem ou são **duplicadas**. O projeto começa a perder fluidez e exigir cada vez mais atenção a detalhes desconexos.
+
+![Vscode Organization 4](README/VscodeOrganization4.png)
+
+A imagem acima mostra como o número de scripts e a interdependência entre eles aumentaram. Alterar qualquer coisa exige navegar entre vários arquivos — e lembrar *quais arquivos precisam ser alterados* já se torna um desafio por si só.
+
+---
+
+### A complexidade escondida
+
+As dependências estão mais caóticas do que nunca. Além de aumentarem, agora surgem **relações inesperadas** e até **inapropriadas**. Por exemplo:
+
+* O `Enemy` passou a depender diretamente do **prefab do Experience Pickup**, algo que **quebra a lógica de separação de responsabilidades**.
+* Começam a surgir **códigos duplicados** com pequenas variações — um sintoma clássico da falta de modularidade.
+
+![Dependences 4](README/Dependence4.png)
+
+Além disso, algumas ações específicas — como o `Player` desativando **dois spawners** ao dar *Game Over* — mostram o quanto a lógica está entrelaçada, dificultando **reuso**, **testes** e **expansão**.
+
+---
+
+### Conclusão da Parte 4
+
+Essa fase marca um ponto crítico no desenvolvimento com a arquitetura Spaghetti. **Adicionar novas funcionalidades se torna cansativo e desgastante**. Cada modificação exige lembrar de múltiplas partes do sistema, aumentando a chance de erros e tornando o processo frustrante.
+
+A sensação é clara: **o projeto começa a lutar contra o próprio código**. A produtividade despenca, e o foco deixa de ser criar coisas novas para simplesmente “fazer tudo continuar funcionando”.
+

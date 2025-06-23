@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnerHealthPickup : MonoBehaviour
 {
     public GameObject Prefab;
     public GameObject Player;
@@ -13,7 +12,6 @@ public class Spawner : MonoBehaviour
     private float currentAngle;
     private float timer;
     private bool isActive;
-    public List<GameObject> SpawnedEnemies = new List<GameObject>();
 
     private IEnumerator Start()
     {
@@ -42,9 +40,6 @@ public class Spawner : MonoBehaviour
         var range = Random.Range(SpawnRange.x, SpawnRange.y);
         var relativePosition = new Vector3(Mathf.Cos(angleInRadians) * range, 0f, Mathf.Sin(angleInRadians) * range);
         var spawnPosition = Player.transform.position + relativePosition;
-        var enemySpawned = Instantiate(Prefab, spawnPosition, Quaternion.identity, transform);
-        enemySpawned.GetComponent<Enemy>().Player = Player.GetComponent<Player>();
-        enemySpawned.GetComponent<Enemy>().Spawner = this;
-        SpawnedEnemies.Add(enemySpawned);
+        Instantiate(Prefab, spawnPosition, Quaternion.identity, transform);
     }
 }
