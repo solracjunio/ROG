@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +9,11 @@ public class Player : MonoBehaviour
     private float _tempHealth;
     public bool IsClamped;
     public Vector2 ClampRange;
+    public ParticleSystem DamageEffect;
+    public ParticleSystem HealEffect;
+    public GameObject DamageVignette;
+    public GameObject HealVignette;
+    public GameObject GameOver;
 
     private void Start()
     {
@@ -28,10 +34,19 @@ public class Player : MonoBehaviour
         if (diff < 0)
         {
             print("Damaged");
+            DamageEffect.Play();
+            StartCoroutine(ActivateVignette(DamageVignette));
+            if (CurrentHealth <= 0)
+            {
+                print("Player is dead");
+                GameOver.SetActive(true);
+            }
         }
         else if (diff > 0)
         {
             print("Healed");
+            HealEffect.Play();
+            StartCoroutine(ActivateVignette(HealVignette));
         }
         _tempHealth = CurrentHealth;
 
@@ -48,5 +63,16 @@ public class Player : MonoBehaviour
         {
             CurrentHealth = MaxHealth;
         }
+        if (CurrentHealth < 0)
+        {
+            CurrentHealth = 0;
+        }
+    }
+
+    public IEnumerator ActivateVignette(GameObject vignette)
+    {
+        vignette.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        vignette.SetActive(false);
     }
 }
