@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public SpawnerHealthPickup SpawnerHealthPickup;
     public Weapon Weapon;
     public float Experience;
+    public float MaxExperience = 100f;
+    public GameObject AbilityPanel;
 
     private void Start()
     {
@@ -58,6 +60,17 @@ public class Player : MonoBehaviour
         if (IsClamped)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth, ClampRange.x, ClampRange.y);
+        }
+
+        if (Experience >= MaxExperience)
+        {
+            AbilityPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            AbilityPanel.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 
