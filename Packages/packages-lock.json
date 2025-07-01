@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.8",
       "depth": 0,
@@ -202,6 +208,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "dev.flecs.net": {
+      "version": "https://github.com/BeanCheeseBurrito/Flecs.NET.Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a8962cbd7d0b31cfa523c061cc6b79c65d5f6fe5"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
