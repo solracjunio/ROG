@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: db0ea5d9042c3af43a32f0b5a8ea94ab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 232107
+  packageName: Soap - ScriptableObject Architecture Pattern
+  packageVersion: 3.5.1
+  assetPath: Assets/Obvious/Soap/Core/Editor/Utilities/SoapTypeUtils.cs
+  uploadId: 740133
