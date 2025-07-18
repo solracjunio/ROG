@@ -7,6 +7,6 @@ public class PlayerInputs : MonoBehaviour
 
     private void Update()
     {
-        _inputs.Value = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _inputs.Value = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
     }
 }

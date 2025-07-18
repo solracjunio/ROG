@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movement = _speed * Time.deltaTime * _inputs.Value.normalized;
+        Vector3 movement = _speed * Time.deltaTime * _inputs.Value;
         transform.Translate(movement, Space.World);
     }
 }
