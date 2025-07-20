@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9046349229925568152}
   - component: {fileID: 9020157923789374008}
   - component: {fileID: 7277722696237669234}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: prefab_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7933158d69aa9e34ca86f6810b79e679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 2
   _playerPosition: {fileID: 11400000, guid: 7b3f2625dd4866242b9bb37b51cde47d, type: 2}
 --- !u!1 &208795691503474961
 GameObject:

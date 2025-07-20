@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _currentHealth.Value = _maxHealth.Value;
         _currentHealth.OnValueChanged += OnHealthChanged;
+        _currentHealth.MaxReference.Value = _maxHealth;
     }
 
     void OnDestroy()

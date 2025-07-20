@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         _scriptableListEnemy.Remove(this);
         Destroy(gameObject);
